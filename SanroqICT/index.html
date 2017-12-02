@@ -21,7 +21,17 @@
 	<link href="css/animate.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
-
+    
+    <!-- javascript -->
+    <script>
+        window.onload = function () {
+            if (/Android|Mobile|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+                var intro = document.getElementById("intro");
+                intro.style.display = "None";
+            }            
+        };
+      
+    </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
@@ -52,7 +62,7 @@
         </div>
     </div>
     <!-- /page loader -->
-    <!-- Section: home video -->
+<!-- Section: home video -->
     <section id="intro" class="home-video text-light">
         <div class="home-video-wrapper">
 
@@ -465,7 +475,7 @@
                             </ul>
 
                         </div>-->
-                        <p>&copy;Sanroq ICT. All Rights Reserved V1.4</p>
+                        <p>&copy;Sanroq ICT. All Rights Reserved V1.5</p>
 
                     </div>
                 </div>
