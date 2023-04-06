@@ -5,30 +5,30 @@ Sanroq ICT is an international professional recruitment consultancy company, and
 Sanroq ICT is a professional website built using HTML, CSS, jQuery, JavaScript, Bootstrap, and IDE Visual Studio 2019. It is developed on the ASP.NET framework v4.5.2.
 
 ## Features
-Attractive and responsive user interface design.
-Fast loading speed and optimized for performance.
-Cross-platform compatibility, accessible from any device.
-Fully functional contact form for inquiries and feedback.
-Easy navigation and user-friendly interface.
-Powered by the latest web development technologies and frameworks.
+* Attractive and responsive user interface design.
+* Fast loading speed and optimized for performance.
+* Cross-platform compatibility, accessible from any device.
+* Fully functional contact form for inquiries and feedback.
+* Easy navigation and user-friendly interface.
+* Powered by the latest web development technologies and frameworks.
 
 ## Technologies used
-HTML
-CSS
-jQuery
-JavaScript
-Bootstrap
-Visual Studio 2019
-ASP.NET framework v4.5.2
+* HTML
+* CSS
+* jQuery
+* JavaScript
+* Bootstrap
+* Visual Studio 2019
+* ASP.NET framework v4.5.2
 
 ## How to Run
 
 To run the Sanroq ICT website, follow these steps:
 
-Clone the repository to your local machine.
-Open the project in Visual Studio 2019.
-Build and run the project using the debug configuration.
-Access the website from your preferred web browser.
+1. Clone the repository to your local machine.
+2. Open the project in Visual Studio 2019.
+3. Build and run the project using the debug configuration.
+4. Access the website from your preferred web browser.
 
 ## Contributing
 
