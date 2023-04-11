@@ -63,7 +63,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
@@ -75,41 +74,35 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     $(el).on('click', dismiss, this.close)
   }
 
-  Alert.prototype.close = function (e) {
-    var $this    = $(this)
-    var selector = $this.attr('data-target')
-
-    if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+  Alert.prototype.close = function (event) {
+    var $this = $(this);
+    var selector = $this.attr('data-target') || $this.attr('href').replace(/.*(?=#[^\s]*$)/, '');
+    var $parent = $(selector);
+    
+    if (event) {
+      event.preventDefault();
     }
-
-    var $parent = $(selector)
-
-    if (e) e.preventDefault()
-
-    if (!$parent.length) {
-      $parent = $this.hasClass('alert') ? $this : $this.parent()
+    
+    $parent.trigger(event = $.Event('close.bs.alert'));
+  
+    if (event.isDefaultPrevented()) {
+      return;
     }
-
-    $parent.trigger(e = $.Event('close.bs.alert'))
-
-    if (e.isDefaultPrevented()) return
-
-    $parent.removeClass('in')
-
+  
+    $parent.removeClass('in');
+  
     function removeElement() {
-      $parent.trigger('closed.bs.alert').remove()
+      $parent.trigger('closed.bs.alert').remove();
     }
+  
+    if ($.support.transition && $parent.hasClass('fade')) {
+      $parent.one($.support.transition.end, removeElement).emulateTransitionEnd(150);
+    } else {
+      removeElement();
+    }
+  };
 
-    $.support.transition && $parent.hasClass('fade') ?
-      $parent
-        .one($.support.transition.end, removeElement)
-        .emulateTransitionEnd(150) :
-      removeElement()
-  }
-
-
+  
   // ALERT PLUGIN DEFINITION
   // =======================
 
