@@ -76,7 +76,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   Alert.prototype.close = function (event) {
     var $this = $(this);
-    var selector = $this.attr('data-target') || $this.attr('href').replace(/.*(?=#[^\s]*$)/, '');
+    var selector = $this.attr('data-target') || $this.attr('href').replace(/.*(?=#[^\s]*$)/, ''); // href attribute is for stripping for ie7
     var $parent = $(selector);
     
     if (event) {
@@ -102,7 +102,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     }
   };
 
-  
+
   // ALERT PLUGIN DEFINITION
   // =======================
 
