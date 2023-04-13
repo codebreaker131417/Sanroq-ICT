@@ -584,14 +584,22 @@
 				}
 			}
 
-			// Reposition backgrounds
-			for (i = this.backgrounds.length - 1; i >= 0; i--) {
-				background = this.backgrounds[i];
+			// This loop repositions backgrounds in a parallax effect
+			// We loop backwards through the backgrounds to make sure that the first layers move slower than the last ones
+			for (let i = this.backgrounds.length - 1; i >= 0; i--) {
+				// Get the current background
+				let background = this.backgrounds[i];
 
-				fixedRatioOffset = (background.isFixed ? 0 : 1);
-				bgLeft = (this.options.horizontalScrolling ? (scrollLeft + background.horizontalOffset - this.viewportOffsetLeft - background.startingOffsetLeft + background.parentOffsetLeft - background.startingBackgroundPositionLeft) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueLeft);
-				bgTop = (this.options.verticalScrolling ? (scrollTop + background.verticalOffset - this.viewportOffsetTop - background.startingOffsetTop + background.parentOffsetTop - background.startingBackgroundPositionTop) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueTop);
+				// Calculate the offset for backgrounds with a fixed ratio
+				let fixedRatioOffset = (background.isFixed ? 0 : 1);
 
+				// Calculate the new background position for the current scroll position
+				let bgLeft = (this.options.horizontalScrolling ?
+					(scrollLeft + background.horizontalOffset - this.viewportOffsetLeft - background.startingOffsetLeft + background.parentOffsetLeft - background.startingBackgroundPositionLeft) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueLeft);
+				let bgTop = (this.options.verticalScrolling ?
+					(scrollTop + background.verticalOffset - this.viewportOffsetTop - background.startingOffsetTop + background.parentOffsetTop - background.startingBackgroundPositionTop) * (fixedRatioOffset - background.stellarRatio) + 'px' : background.startingValueTop);
+
+				// Set the new background position
 				setBackgroundPosition(background.$element, bgLeft, bgTop);
 			}
 		},
